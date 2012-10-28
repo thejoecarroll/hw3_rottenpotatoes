@@ -32,6 +32,8 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I press "Refresh"
   Then I should see "When Harry Met Sally"
   And I should see "The Incredibles"
+  But I should not see "Aladdin"
+  And I should not see "The Help"
 
 Scenario: no ratings selected
   # see assignment
