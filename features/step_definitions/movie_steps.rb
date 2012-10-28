@@ -17,6 +17,11 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   assert(page.body.index(e1) < page.body.index(e2))
 end
 
+Then  /I should see all of the movies/ do
+  rows = page.body.scan(/<tr>/).length - 1
+  assert(rows == Movie.all.length)
+end
+
 # Make it easier to express checking or unchecking several boxes at once
 #  "When I uncheck the following ratings: PG, G, R"
 #  "When I check the following ratings: G"
